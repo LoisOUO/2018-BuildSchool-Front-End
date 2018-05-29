@@ -1,0 +1,737 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>index</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <style>
+        div {
+            font-family: Microsoft JhengHei;
+
+        }
+
+        li {
+            font-size: 0.9em;
+            height: 1em;
+        }
+
+        ul li {
+            list-style-type: none;
+        }
+
+        ul {
+            padding-left: 0px !important;
+        }
+
+        td,
+        th {
+            width: 14%;
+            border: rgb(199, 195, 195) solid !important;
+        }
+
+        td {
+            height: 140px !important;
+
+        }
+
+        li div {
+            border-radius: 5px;
+            /*圓角 */
+        }
+
+        #addsomething {
+            background-color: #fd5e5e;
+            border: none;
+        }
+
+        .fas {
+            color: #fd5e5e;
+        }
+
+        /* font-family: Microsoft JhengHei;*/
+    </style>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1"
+        crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+
+
+</head>
+
+
+
+<body>
+
+
+
+    <div class="container" style="margin:30px 180px 0px 180px;">
+        <div class="row text-center">
+            <div class="col-3 col-lg pl-0">
+                <button id="former" type="button" class="btn btn-link">
+                    <i class="fas fa-angle-double-left"></i>
+                </button>
+            </div>
+
+            <div class="col-5 col-lg">
+                <button id="YY" type="button" class="btn btn-link" style="color:#000;font-size: 2em;" disabled></button>
+                <button id="MM" type="button" class="btn btn-link" style="color:#000;font-size: 2em;" disabled></button>
+            </div>
+
+            <div class="col-3 col-lg text-right">
+                <button id="next" type="button" class="btn btn-link">
+                    <i class="fas fa-angle-double-right"></i>
+                </button>
+            </div>
+
+            <div class="col-1 col-xs text-right">
+                <!-- Button trigger modal -->
+                <button type="button" id="addsomething" class="btn btn-primary btn-sm text-right" data-toggle="modal" data-target="#modelId">
+                    +
+                </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-center">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>星期一</th>
+                            <th>星期二</th>
+                            <th>星期三</th>
+                            <th>星期四</th>
+                            <th>星期五</th>
+                            <th>星期六</th>
+                            <th>星期日</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center" id="DD">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="modelTitleId">新增行程</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times; </span>
+                    </button>
+
+                </div>
+                <div class="modal-body">
+                    <div class="row mt-1">
+                        <div class="col-3 mt-1">
+                            <p>日期</p>
+                        </div>
+                        <div class="col-7">
+                            <input type="Date" class="form-control" name="" id="input_date" aria-describedby="helpId" placeholder="YYYY/MM/DD">
+                        </div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col-3 mt-1">
+                            <p>時間</p>
+                        </div>
+                        <div class="col-7">
+                            <div class="form-group">
+
+                                <input type="time" class="form-control" name="" id="input_time" aria-describedby="helpId" placeholder="">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3 mt-1">
+                            <label>顏色</label>
+                        </div>
+
+                        <div class="col-7 text-left">
+                            <input type="color" class="form-control" name="" id="input_color" aria-describedby="helpId" placeholder="">
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="row mt-1">
+                    <div class="col-3 mt-1">
+                        <label for="">事項</label>
+                    </div>
+                    <div class="col-7">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="" id="input_text" aria-describedby="helpId" placeholder="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-1">
+                    <div class="col-3 mt-1">
+                        <label for="">地點</label>
+                    </div>
+                    <div class="col-7 mt-1">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="" id="input_address" aria-describedby="helpId" placeholder="" style="font-size:0.5em;">
+                        </div>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col-5">
+                        <div class="form-group" style="margin:0px 88px 10px 132px;">
+                            <div id="map" style="width:240px;height:240px;"></div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button id="add" type="button" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!---->
+    <div class="modal fade" id="deletemodalid" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="delete_modelTitleId">修改行程</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times; </span>
+                    </button>
+
+                </div>
+                <div class="modal-body">
+                    <div class="row mt-1">
+                        <div class="col-3 mt-1">
+                            <p>日期</p>
+                        </div>
+                        <div class="col-7">
+                            <input type="Date" class="form-control" name="" id="delete_input_date" aria-describedby="helpId" placeholder="YYYY/MM/DD">
+                        </div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col-3 mt-1">
+                            <p>時間</p>
+                        </div>
+                        <div class="col-7">
+                            <div class="form-group">
+
+                                <input type="time" class="form-control" name="" id="delete_input_time" aria-describedby="helpId" placeholder="">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3 mt-1">
+                            <label>顏色</label>
+                        </div>
+
+                        <div class="col-7 text-left">
+                            <input type="color" class="form-control" name="" id="delete_input_color" aria-describedby="helpId" placeholder="">
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="row mt-1">
+                    <div class="col-3 mt-1">
+                        <label for="">事項</label>
+                    </div>
+                    <div class="col-7">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="" id="delete_input_text" aria-describedby="helpId" placeholder="">
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-1">
+                    <div class="col-3 mt-1">
+                        <label for="">地點</label>
+                    </div>
+                    <div class="col-7 mt-1">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="" id="delete_address" aria-describedby="helpId" placeholder="" style="font-size:0.5em;">
+                        </div>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col-5">
+                        <div class="form-group" style="margin:0px 88px 10px 132px;">
+                            <div id="output_map" style="width:240px;height:240px;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button id="deletebun" type="button" class="btn btn-secondary" data-dismiss="modal">刪除</button>
+                    <button id="newbtn" type="button" class="btn btn-primary">修改</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbtpegcDZ_E-8w3UcMDCnvmWFmVqLVpdQ" type="text/javascript"></script>
+
+    <script>
+        var address;
+        function geocodeLatLng(resultsLatLng) {
+            geocoder.geocode({ 'latLng': resultsLatLng }, function (results, status) {
+                if (status === google.maps.GeocoderStatus.OK) {
+                    // 如果有資料就會回傳
+                    if (results) {
+                        address = results[0].formatted_address;
+                        input_address.value = address;
+                        delete_address.value = address;
+
+                    }
+                }
+                // 經緯度資訊錯誤
+                else {
+                    alert("Reverse Geocoding failed because: " + status);
+                }
+            });
+        }
+
+        var map;
+        var output_map;
+        var marker = null;
+        var center = { lat: 24.7571075, lng: 120.952429 };
+        var center01;
+        var choosemap;
+        var maker2;
+        window.onload = function () {
+            map = new google.maps.Map(
+                document.getElementById('map'), {
+                    center: center,
+                    zoom: 13
+                });
+
+
+
+            map.addListener('click', function (e) {
+                map.setCenter(e.latLng);
+                if (marker != null) {
+                    marker.setMap(null);
+                    marker = null;
+
+                }
+                document.getElementById("input_address").value = e.latLng;
+                choosemap = e.latLng;
+                console.log("0409");
+                //console.log(e.latLng);
+                //console.log(choosemap);
+                marker = new google.maps.Marker({
+                    position: e.latLng,
+                    map: map,
+                    title: e.latLng.toString()
+                });
+                Y = document.getElementById("input_address").value;
+                Y = Y.replace(/\(/, "");
+                Y = Y.replace(/\)/, "");
+                X = Y.split(',');
+                //console.log(X[0]);
+
+                geocoder = new google.maps.Geocoder();
+                geocodeLatLng(choosemap);
+
+                //console.log(geocodeLatLng(choosemap));
+            });
+
+
+            //-**************
+            output_map = new google.maps.Map(
+                document.getElementById('output_map'), {
+                    center: center,
+                    zoom: 13
+                });
+            output_map.addListener('click', function (e) {
+                output_map.setCenter(e.latLng);
+                if (marker != null) {
+                    marker.setMap(null);
+                    marker = null;
+                }
+                document.getElementById("delete_address").value = e.latLng;
+                choosemap = e.latLng;
+                // console.log(e.latLng);
+                //console.log(choosemap);
+                maker2 = new google.maps.Marker({
+                    position: e.latLng,
+                    map: output_map,
+                    title: e.latLng.toString()
+
+                });
+                //console.log(maker2);
+                geocoder = new google.maps.Geocoder();
+                geocodeLatLng(choosemap);
+            });
+
+        }
+
+
+
+
+
+        //----------------
+        var add = document.getElementById("add");
+        add.onclick = function () {
+            var date = document.getElementById("input_date").value.split('-');
+            //console.log(date);
+
+            geocoder = new google.maps.Geocoder();
+            //---------------------***
+            var value = {
+                year: date[0],
+                month: date[1],
+                day: date[2],
+                time: document.getElementById("input_time").value,
+                color: document.getElementById("input_color").value,
+                text: document.getElementById("input_text").value,
+                address: document.getElementById("input_address").value,
+                map: choosemap
+            }
+            console.log(document.getElementById("input_address").value);
+            console.log("!!!!!!!!!!777");
+            // values = value;
+            if (localStorage.getItem(date[0] + date[1] + date[2]) == null) {
+                // console.log(add);
+                localStorage.setItem(date[0] + date[1] + date[2], JSON.stringify(value));
+                // console.log(localStorage.getItem(date[0] + date[1] + date[2]));
+                // location = location;
+
+            }
+
+            else {
+                for (var i = 1; i < 5;) {
+                    if (localStorage.getItem(date[0] + date[1] + date[2] + i) == null) {
+                        console.log("當天第" + i + "事項");
+                        localStorage.setItem(date[0] + date[1] + date[2] + i, JSON.stringify(value));
+                        i++;
+                        // location = location;
+                        break;
+                    }
+                    else if (localStorage.getItem(date[0] + date[1] + date[2] + i) !== null) {
+                        i++;
+                        // location = location;
+                    }
+                    else {
+                        console.log("存檔錯誤");
+
+                        break;
+                    }
+                }
+            }
+
+            console.log(JSON.parse(localStorage.getItem(date[0] + date[1] + date[2])));
+            console.log("~~~" + date[0]);
+            console.log((localStorage.getItem(date[0] + date[1] + date[2])));
+            console.log("內容甚麼東西的:" + value.text);
+            console.log(choosemap + "!!!!");
+        };
+
+
+        var a = new Date();//今天晚整的日期
+        var now = new Date();
+        var thisMM = new Date();
+        console.log("現在月份是:" + (thisMM.getMonth() + 1));
+        console.log("今天是" + a.toDateString());
+        a.setDate(1);
+        day = function () {
+
+            document.querySelector("#DD").innerHTML = "";
+            document.getElementById("YY").innerText = a.getFullYear() + "年";
+            document.getElementById("MM").innerText = a.getMonth() + 1 + "月";
+            thisMM.setMonth(a.getMonth());
+            while (a.getDay() != 1) {
+                a.setDate(a.getDate() - 1);
+            }
+
+            var DD = document.querySelector("#DD");
+            for (var j = 0; j < 6; j++) {
+                var tr = document.createElement("tr");
+                for (var i = 0; i < 7; i++) {
+                    var td = document.createElement("td");
+                    var span = document.createElement("span");
+                    var ul = document.createElement("ul");
+                    span.className = "badge badge-info;btn-block";
+                    span.style = " text-align:center;color:#BBB;background-color:#FFF;font-size:1em;";
+                    span.innerText = a.getDate();
+                    if (a.getMonth() == thisMM.getMonth()) { span.style = "text-align:center;background-color:#FFF;font-size:1em;" }
+
+
+                    if (a.getDate() == now.getDate() && a.getMonth() == now.getMonth()) {
+
+                        span.style = "width:100%;text-align:center;background-color:#DDF;font-size:1em;";
+
+                    }
+
+                    R = function (YY, MM, DD) {
+
+                        if (typeof (Storage) !== "undefined") {
+
+                            if (a.getMonth() < 10) {
+                                MM = "0" + (a.getMonth() + 1);
+                            }
+
+                            if (a.getDate() < 10) {
+                                DD = "0" + a.getDate();
+                            }
+                            var fulldate = "";//完整的日期
+                            fulldate += YY;
+                            fulldate += MM;
+                            fulldate += DD;
+                            if (localStorage.getItem(fulldate) !== null) {
+
+                                var button = document.createElement("button");
+                                var li = document.createElement("li");
+
+                                var X = JSON.parse(localStorage.getItem(fulldate));
+
+                                console.log(X.text + "XX");
+                                console.log("這邊這邊");
+                                button.className = "btn btn-link btn-block";
+                                var name = "";
+                                name = fulldate;
+                                button.id = fulldate;
+                                button.dataset.target = "#deletemodalid";
+                                button.dataset.toggle = "modal";
+                                button.style = "background-color:" + X.color;
+                                ul.style = "padding-left:0px;";
+
+                                button.innerText = "";
+                                li.innerHTML = X.time + "-" + X.text;
+                                button.appendChild(li);
+                                ul.appendChild(button);
+
+                                var datedays = document.getElementById("input_date").value;
+
+                                button.onclick = function () {
+                                    document.getElementById("delete_input_date").value = X.year + "-" + X.month + "-" + X.day;
+                                    document.getElementById("delete_input_time").value = X.time;
+                                    document.getElementById("delete_input_color").value = X.color;
+                                    document.getElementById("delete_input_text").value = X.text;
+                                    // document.getElementById("delete_address").value = X.address;
+                                    document.getElementById("delete_address").value = X.address;
+
+                                    //geocodeLatLng(resultsLatLng)
+                                    document.getElementById("output_map").value = X.map;
+                                    console.log(X.map);
+
+                                    maker2 = new google.maps.Marker({
+                                        position: X.map,
+                                        map: output_map
+                                    });
+                                    console.log(fulldate);
+
+                                    deletebun.onclick = function () {
+                                        localStorage.removeItem(fulldate);
+                                        location = location;
+                                    }
+                                    newbtn.onclick = function () {
+                                        // var ymd = fulldate;
+                                        localStorage.removeItem(fulldate);
+                                        var date = document.getElementById("delete_input_date").value.split('-');
+                                        //console.log(date);
+                                        var value = {
+                                            year: date[0],
+                                            month: date[1],
+                                            day: date[2],
+                                            time: document.getElementById("delete_input_time").value,
+                                            color: document.getElementById("delete_input_color").value,
+                                            text: document.getElementById("delete_input_text").value,
+                                            address: document.getElementById("delete_address").value,
+                                            map: document.getElementById("output_map").value,
+                                        }
+                                        localStorage.setItem(date[0] + date[1] + date[2], JSON.stringify(value));
+                                        location = location;
+                                    }
+                                }
+                                var f_2 = fulldate + "1";
+                                if (localStorage.getItem(f_2) !== null) {
+
+                                    var button = document.createElement("button");
+                                    var li = document.createElement("li");
+                                    var Y = JSON.parse(localStorage.getItem(f_2));
+
+
+                                    console.log(Y.text + "XX");
+                                    console.log("這邊這邊");
+                                    button.className = "btn btn-link btn-block";
+                                    var name = "";
+                                    name = f_2;
+                                    button.id = f_2;
+                                    button.style = "background-color:" + Y.color;
+                                    button.dataset.target = "#deletemodalid";
+                                    button.dataset.toggle = "modal";
+                                    button.innerText = "";
+                                    li.innerHTML = Y.time + "-" + Y.text;
+
+
+
+                                    button.appendChild(li);
+                                    ul.appendChild(button);
+                                    button.onclick = function () {
+                                        document.getElementById("delete_input_date").value = Y.year + "-" + Y.month + "-" + Y.day;
+                                        document.getElementById("delete_input_time").value = Y.time;
+                                        document.getElementById("delete_input_color").value = Y.color;
+                                        document.getElementById("delete_input_text").value = Y.text;
+                                        console.log("編輯資料");
+                                        console.log(f_2);
+                                        deletebun.onclick = function () {
+                                            localStorage.removeItem(f_2);
+                                            location = location;
+                                        }
+                                        newbtn.onclick = function () {
+                                            localStorage.removeItem(f_2);
+                                            var date = document.getElementById("delete_input_date").value.split('-');
+                                            var value1 = {
+                                                year: date[0],
+                                                month: date[1],
+                                                day: date[2],
+                                                time: document.getElementById("delete_input_time").value,
+                                                color: document.getElementById("delete_input_color").value,
+                                                text: document.getElementById("delete_input_text").value,
+                                                address: document.getElementById("delete_address").value,
+                                                map: document.getElementById("output_map").value,
+
+                                            }
+                                            localStorage.setItem(date[0] + date[1] + date[2] + "1", JSON.stringify(value1));
+                                            location = location;
+
+                                        }
+                                    }
+                                }
+
+                                var f_3 = fulldate + "2";
+                                if (localStorage.getItem(f_3) !== null) {
+
+                                    var button = document.createElement("button");
+                                    var li = document.createElement("li");
+                                    //  console.log(fulldate);
+
+                                    //console.log(localStorage.getItem(fulldate));
+                                    var Z = JSON.parse(localStorage.getItem(f_3));
+
+                                    button.style = "background-color:" + Z.color + ";text-align:left;width:100%;height:1em;";
+
+                                    button.className = "btn btn-link";
+                                    var name = "";
+                                    name = f_3;
+                                    button.id = f_3;
+
+                                    li.style = "text-align:left;";
+                                    button.style = "color:#000;text-align:left";
+
+                                    button.dataset.target = "#deletemodalid";
+                                    button.dataset.toggle = "modal";
+                                    button.innerText = "";
+                                    li.innerHTML = Z.time + "-" + Z.text;
+                                    ul.style = "text-align:left";
+
+                                    button.appendChild(li);
+                                    ul.appendChild(button);
+
+                                    var datedays = document.getElementById("input_date").value;
+                                    button.onclick = function () {
+
+                                        document.getElementById("delete_input_date").value = Z.year + "-" + Z.month + "-" + Z.day;
+                                        document.getElementById("delete_input_time").value = Z.time;
+                                        document.getElementById("delete_input_color").value = Z.color;
+                                        document.getElementById("delete_input_text").value = Z.text;
+
+                                        console.log("編輯資料");
+                                        console.log(f_3);
+                                        deletebun.onclick = function () {
+                                            localStorage.removeItem(f_3);
+                                            location = location;
+                                        }
+                                        newbtn.onclick = function () {
+                                            localStorage.removeItem(f_3);
+                                            var date = document.getElementById("delete_input_date").value.split('-');
+                                            //console.log(date);
+                                            var value = {
+                                                year: date[0],
+                                                month: date[1],
+                                                day: date[2],
+                                                time: document.getElementById("delete_input_time").value,
+                                                color: document.getElementById("delete_input_color").value,
+                                                text: document.getElementById("delete_input_text").value,
+                                                address: document.getElementById("delete_address").value,
+                                                map: document.getElementById("output_map").value,
+                                            }
+                                            localStorage.setItem(date[0] + date[1] + date[2] + "2", JSON.stringify(value));
+                                            location = location;
+                                        }
+
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+
+
+                    R(a.getFullYear(), a.getMonth(), a.getDate());
+
+
+                    td.appendChild(span);
+
+                    td.appendChild(ul);
+
+                    tr.appendChild(td);
+                    tr.style = "height:6em;";
+                    a.setDate(a.getDate() + 1);
+                }
+                DD.appendChild(tr);
+            }
+        }
+        day();
+
+        var next = document.getElementById("next");
+        next.onclick = function () {
+            a.setDate(1);
+            day();
+        }
+        var former = document.getElementById("former");
+        former.onclick = function () {
+            a.setMonth(a.getMonth() - 2);
+            a.setDate(1);
+            day();
+
+        }
+
+
+
+
+        //localStorage.clear();
+    </script>
+
+
+</body>
+
+</html>

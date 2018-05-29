@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <style>
+        .black {
+            font-family: Microsoft JhengHei;
+            color: white;
+            background-color: black;
+            align-content: center;
+        }
+
+        div .btn {
+            border-radius: 55px;
+            height: 50px;
+            width: 50px;
+            margin: 2px 2px 2px 2px;
+        }
+    </style>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+</head>
+
+<body class="black">
+    <div class="container  text-center">
+
+        <div class="row ">
+            <div class="col ">
+                <div class="form-group">
+                    <label for="">終極密碼</label>
+                    <p>
+                        <input type="text" style="border-radius: 5px;" id="inputtext">
+                    </p>
+                    <small id="point" class="form-text text-muted">
+                        0-100
+                    </small>
+                </div>
+            </div>
+        </div>
+        <div class="row text-center" style="margin:0px 2px 4px 2px;">
+            <div class="col-md">
+                <button type="button" class="btn btn-dark">1</button>
+                <button type="button" class="btn btn-dark">2</button>
+                <button type="button" class="btn btn-dark">3</button>
+            </div>
+        </div>
+        <div class="row" style="margin:2px 2px 2px 2px;">
+            <div class="col">
+                <button type="button" class="btn btn-dark">4</button>
+                <button type="button" class="btn btn-dark">5</button>
+                <button type="button" class="btn btn-dark">6</button>
+            </div>
+        </div>
+        <div class="row" style="margin:2px 2px 2px 2px;">
+            <div class="col">
+                <button type="button" class="btn btn-dark">7</button>
+                <button type="button" class="btn btn-dark">8</button>
+                <button type="button" class="btn btn-dark">9</button>
+            </div>
+        </div>
+        <div class="row" style="margin:2px 2px 2px 2px;">
+            <div class="col">
+                <button id="X" type="button" class="btn btn-danger">X</button>
+                <button type="button" class="btn btn-dark">0</button>
+                <button id="Go" type="button" class="btn btn-md btn-success">猜</button>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            var n = "";
+            var start = function () {
+                n = Math.floor(Math.random() * 100);
+                return n;
+            };
+            console.log(start());
+            var input = "";
+            $("button").on("click", function () { //var buttons = $("button")
+                var btn = event.srcElement;
+                if (parseInt(btn.innerText) || btn.innerText == 0) {
+                    input += btn.innerText;
+                }
+                $("#inputtext").val(input);  // document.getElementById("inputtext").value = input;
+            })
+            $("#X").on("click", function () {
+                input = "";
+                $("#inputttext").text("");
+                console.log(input);
+            })
+            var max = 100;
+            var min = 1;
+            $("#Go").on("click", function () {
+                console.log(input);
+                if (n == input) {
+                    $("#point").text("答對了唷");
+                }
+                else if (n < input && input <= 100) {
+                    if (max > input) {
+                        max = input;
+                    }
+                    $("#point").text(min + "~" + max + "再猜小一點");
+                }
+                else if (n > input && input >= 1) {
+                    if (min < input) {
+                        min = input;
+                    }
+                    $("#point").text(min + "~" + max + "再大一點");
+                }
+                input = "";
+            })
+        })
+/*
+//   window.setInterval( function(){
+//    },1000);
+//$("body").append(newbutton);
+// });
+//定時執行function 
+
+*/
+    </script>
+
+</body>
+
+</html>

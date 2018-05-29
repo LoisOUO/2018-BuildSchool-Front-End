@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <style>
+        button.btn {
+            background-color: aliceblue;
+            color: darkcyan;
+        }
+
+        div {
+            font-family: Microsoft JhengHei;
+        }
+    </style>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container ">
+
+        <div class="row">
+            <div class="col " style="height:150px;">
+                <div class="form-group">
+                    <label for="">終極密碼</label>
+                    <input type="text" class="form-control" name="" id="inputtext" aria-describedby="helpId" placeholder="" style="width:150px;">
+                    <small id="point" class="form-text text-muted">
+                        0-100
+                    </small>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row" style="margin:2px 2px 2px 2px;">
+            <div class="col-sm">
+                <button type="button" class="btn btn-dark">1</button>
+                <button type="button" class="btn btn-dark">2</button>
+                <button type="button" class="btn btn-dark">3</button>
+            </div>
+        </div>
+        <div class="row" style="margin:2px 2px 2px 2px;">
+            <div class="col">
+                <button type="button" class="btn btn-dark">4</button>
+                <button type="button" class="btn btn-dark">5</button>
+                <button type="button" class="btn btn-dark">6</button>
+            </div>
+        </div>
+        <div class="row" style="margin:2px 2px 2px 2px;">
+            <div class="col">
+                <button type="button" class="btn btn-dark">7</button>
+                <button type="button" class="btn btn-dark">8</button>
+                <button type="button" class="btn btn-dark">9</button>
+            </div>
+        </div>
+        <div class="row" style="margin:2px 2px 2px 2px;">
+            <div class="col">
+                <button id="X" type="button" class="btn btn-danger">X</button>
+                <button type="button" class="btn btn-dark">0</button>
+                <button id="Go" type="button" class="btn btn-md btn-success" style="width:34.63px;height:38px;font-size:0.8em;">猜</button>
+            </div>
+        </div>
+
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script>
+        var n = "";
+        var start = function () {
+            n = Math.floor(Math.random() * 100);
+            return n;
+        };
+        console.log(start());
+        var input = "";
+        var buttons = document.getElementsByTagName("button");
+        for (var i = 0; i < buttons.length; i++) {
+            var button = buttons[i];
+            button.onclick = function () {
+                var btn = event.srcElement;
+                // document.getElementById("inputtext").value += btn.innerText; //id!!!
+                input += btn.innerText;
+                document.getElementById("inputtext").value = input;
+            }
+        }
+        var delete_01 = document.getElementById("X");
+        delete_01.onclick = function () {
+            input = "";
+            document.getElementById("inputtext").value = input;
+            console.log(input);
+        };
+        var max = 100;
+        var min = 1;
+        var Go = document.getElementById("Go");
+        Go.onclick = function () {
+            console.log(input);
+            if (n == input) {
+                document.getElementById("point").innerText = "答對嘍";
+            }
+            else if (n < input) {
+                if (max > input) {
+                    max = input;
+                }
+                document.getElementById("point").innerText = min + "~" + max + "再猜小一點";
+            }
+            else if (n > input) {
+                if (min < input) {
+                    min = input;
+                }
+                document.getElementById("point").innerText = min + "~" + max + "再大一點";
+            }
+            input = "";
+        };
+    </script>
+
+
+
+</body>
+
+</html>

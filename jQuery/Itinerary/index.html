@@ -1,0 +1,520 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <style>
+        div {
+            font-family: Microsoft JhengHei;
+        }
+
+        li {
+            font-size: 1em;
+            height: 22px;
+            width: 100%;
+            box-sizing: content-box;
+        }
+
+        ul li {
+            list-style-type: none;
+        }
+
+        ul {
+            padding-left: 0px !important;
+        }
+
+        th {
+
+            color: #ff9980;
+        }
+
+        td,
+        th {
+            width: 14%;
+            border: #cacaca solid !important;
+        }
+
+        td {
+            width: auto;
+            height: 140px !important;
+        }
+
+        div li {
+            word-break: break-all;
+
+        }
+
+        li div {
+            border-radius: 5px;
+            /*圓角 */
+        }
+
+        .fas {
+            color: #ff9980;
+
+        }
+
+        #addsomething {
+            background-color: #ff9980;
+            border: none;
+        }
+
+
+        /* font-family: Microsoft JhengHei;*/
+    </style>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1"
+        crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+</head>
+
+<body>
+
+
+    <div class="container" style="margin:30px 180px 0px 180px;">
+        <div class="row text-center">
+            <div class="col-3 col-lg pl-0">
+                <button id="former" type="button" class="btn btn-link" style="font-size:2em;">
+                    <i class="fas fa-angle-double-left"></i>
+                </button>
+            </div>
+
+            <div class="col-5 col-lg text-center">
+                <button id="YY" type="button" class="btn btn-link" style="color:#000;text-decoration:none;font-size: 2em;" disabled></button>
+                <!--年-->
+                <button id="MM" type="button" class="btn btn-link" style="color:#000;text-decoration:none;font-size: 2em;" disabled></button>
+                <!--月-->
+            </div>
+
+            <div class="col-3 col-lg text-center">
+                <button id="next" type="button" class="btn btn-link " style="font-size: 2em;">
+
+                    <i class="fas fa-angle-double-right"></i>
+                </button>
+            </div>
+
+            <div class="col-1 col-xs  text-right pt-3">
+                <!-- Button trigger modal -->
+                <button type="button" id="addsomething" class="btn btn-primary btn-sm text-right" data-toggle="modal" data-target="#modelId">
+                    +
+                </button>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-center">
+                <table class="table">
+                    <thead>
+                        <tr>
+
+                            <th>Mon</th>
+                            <th>Tue</th>
+                            <th>Wed</th>
+                            <th>Thu</th>
+                            <th>Fri</th>
+                            <th>Sat</th>
+                            <th>Sun</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center" id="DD">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade text-center" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="modelTitleId">新增行程</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times; </span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row mt-1">
+                        <div class="col-3 mt-1">
+                            <p>日期</p>
+                        </div>
+                        <div class="col-7">
+                            <input type="Date" class="form-control" name="" id="input_date" aria-describedby="helpId" placeholder="YYYY/MM/DD">
+                        </div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col-3 mt-1">
+                            <p>時間</p>
+                        </div>
+                        <div class="col-7">
+                            <div class="form-group">
+                                <input type="time" class="form-control" name="" id="input_time" aria-describedby="helpId" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col-3 mt-1">
+                            <label for="">事項</label>
+                        </div>
+                        <div class="col-7">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="" id="input_text" aria-describedby="helpId" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3 mt-1">
+                            <label>顏色</label>
+                        </div>
+
+                        <div class="col-7 text-left">
+                            <input type="color" class="form-control" name="" id="input_color" aria-describedby="helpId" placeholder="">
+                        </div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col-3 mt-1">
+                            <label for="">地點</label>
+                        </div>
+                        <div class="col-7 mt-1">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="" id="input_address" aria-describedby="helpId" placeholder="" style="font-size:0.5em;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="col-5">
+                            <div class="form-group" style="margin:0px 10px 10px 10px;">
+                                <div id="map" style="width:450px;height:240px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button id="save" type="button" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!---->
+    <div class="modal fade text-center" id="deletemodalid" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="delete_modelTitleId">修改行程</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times; </span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row mt-1">
+                        <div class="col-3 mt-1">
+                            <p>日期</p>
+                        </div>
+                        <div class="col-8">
+                            <input type="Date" class="form-control" name="" id="delete_input_date" aria-describedby="helpId" placeholder="YYYY/MM/DD">
+                        </div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col-3 mt-1">
+                            <p>時間</p>
+                        </div>
+                        <div class="col-8">
+                            <div class="form-group">
+                                <input type="time" class="form-control" name="" id="delete_input_time" aria-describedby="helpId" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col-3 mt-1">
+                            <label for="">事項</label>
+                        </div>
+                        <div class="col-8">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="" id="delete_input_text" aria-describedby="helpId" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3 mt-1">
+                            <label>顏色</label>
+                        </div>
+                        <div class="col-8">
+                            <input type="color" class="form-control" name="" id="delete_input_color" aria-describedby="helpId" placeholder="">
+                        </div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col-3 mt-1">
+                            <label for="">地點</label>
+                        </div>
+                        <div class="col-8">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="" id="delete_address" aria-describedby="helpId" placeholder="" style="font-size:0.5em;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="col-5">
+                            <div class="form-group" style="margin:0px 10px 10px 10px;">
+                                <div id="output_map" style="width:450px;height:240px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="deletebun" type="button" class="btn btn-secondary" data-dismiss="modal">Delete</button>
+                    <button id="revise" type="button" class="btn btn-primary">Revise</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbtpegcDZ_E-8w3UcMDCnvmWFmVqLVpdQ" type="text/javascript"></script>
+
+
+    <script>
+
+        var address;
+        function geocodeLatLng(resultsLatLng) {
+            geocoder.geocode({ 'latLng': resultsLatLng }, function (results, status) {
+                if (status === google.maps.GeocoderStatus.OK) {
+                    // 有資料會回傳
+                    if (results) {
+                        address = results[0].formatted_address;
+                        input_address.value = address;
+                        delete_address.value = address;
+                    }
+                }
+                // 經緯度資訊錯誤
+                else {
+                    alert("Reverse Geocoding failed because: " + status);
+                }
+            });
+        }
+        var map;
+        var output_map;
+        var marker = null;
+        var center = { lat: 24.7571075, lng: 120.952429 };
+        var center01;
+        var choosemap;
+        var marker2;
+        window.onload = function () {
+            map = new google.maps.Map(
+                document.getElementById('map'), {
+                    center: center,
+                    zoom: 13
+                });
+            map.addListener('click', function (e) {
+                map.setCenter(e.latLng);
+                if (marker != null) {
+                    marker.setMap(null);
+                    marker = null;
+                }
+                $("#input_address").val(e.latLng);
+                choosemap = e.latLng;
+                console.log("0409");
+                console.log(e.latLng);
+                console.log(choosemap);
+                marker = new google.maps.Marker({
+                    position: e.latLng,
+                    map: map,
+                    title: e.latLng.toString()
+                });
+
+                geocoder = new google.maps.Geocoder();
+                geocodeLatLng(choosemap);
+
+            });
+
+            output_map = new google.maps.Map(
+                document.getElementById('output_map'), {
+                    center: center,
+                    zoom: 13
+                });
+            output_map.addListener('click', function (e) {
+                output_map.setCenter(e.latLng);
+                if (marker != null) {
+                    marker.setMap(null);
+                    marker = null;
+                }
+                $("#delete_address").val(e.latLng);
+                // document.getElementById("delete_address").value = e.latLng;
+                choosemap = e.latLng;
+                //console.log(choosemap);
+                marker2 = new google.maps.Marker({
+                    position: e.latLng,
+                    map: output_map,
+                    title: e.latLng.toString()
+
+                });
+                //console.log(marker2);
+                geocoder = new google.maps.Geocoder();
+                geocodeLatLng(choosemap);
+            });
+        }
+
+        function getkey(day) {
+            var str = "";
+            str += day.getFullYear() + "-";
+            if (day.getMonth() < 9) {
+                str += "0";
+            }
+            str += (day.getMonth() + 1) + "-";
+            if (day.getDate() < 9) {
+                str += "0";
+            }
+            str += (day.getDate());
+            return str;
+        }
+        function getschedule(date) {
+            let ul = $("<ul>");
+            let j = 0;
+            for (const i of JSON.parse(localStorage.getItem(date)).schedule) {
+                let div = $("<div>");
+                let li = $("<li>").attr('id', date + ',' + j).css({ 'width': '100px' });
+                j++;
+                li.attr({ 'data-toggle': 'modal', 'data-target': '#deletemodalid' });
+                li.click(function () {
+                    let liid = this.id.split(',');
+                    var X = JSON.parse(localStorage.getItem(liid[0]));
+                    $("#delete_input_date").val(X.date);
+                    $("#delete_input_time").val(X.schedule[liid[1]].time);
+                    $("#delete_input_color").val(X.schedule[liid[1]].color);
+                    $("#delete_input_text").val(X.schedule[liid[1]].text);
+                    $("#delete_address").val(X.schedule[liid[1]].address);
+                    $("#output_map").val(X.schedule[liid[1]].map);
+
+                    marker2 = new google.maps.Marker({
+                        position: X.schedule[liid[1]].map,
+                        map: output_map
+                    });
+
+                    $("#deletebun").click(function () {
+                        let reserve = JSON.parse(localStorage.getItem(liid[0]));
+                        $(reserve.schedule.splice([liid[1]], 1));
+                        localStorage.removeItem(liid[0]);
+                        localStorage.setItem(liid[0], JSON.stringify(reserve));
+                        location = location; //更新頁面
+                    })
+                    $("#revise").click(function () {
+                        let reserve = JSON.parse(localStorage.getItem(liid[0]));
+                        var item = {
+                            time: $("#delete_input_time").val(),
+                            color: $("#delete_input_color").val(),
+                            text: $("#delete_input_text").val(),
+                            address: $("#delete_address").val(),
+                            map: choosemap
+
+                        }
+                        $(reserve.schedule.splice([liid[1]], 1, item));
+                        localStorage.setItem(liid[0], JSON.stringify(reserve));
+                        location = location; //更新頁面
+                    })
+                })
+                //如果背景顏色過深，自動轉換文字顏色
+                var col = (i.color.split('#'))[1];
+                var item = [];
+                for (var h = 0; h < 6; h++) {
+                    let s = col[h] + col[h + 1];
+                    item.push(s);
+                    h++;
+                }
+                if (i.color == '#000000' || item[0] <= 'AA' && item[1] <= 'AA' && item[2] <= 'AA') {
+                    div.css('color', '#FFF')
+                }
+
+
+                div.text(i.time + i.text).css({ 'background-color': i.color, 'word-wrap': 'break-word', 'word-break': 'normal' }).addClass("mt-1 ");
+                li.append(div);
+                ul.append(li);
+            }
+            return ul;
+        }
+        $("#save").on("click", function () {
+            var date = $("#input_date").val();
+            var item = {
+                time: $("#input_time").val(),
+                color: $("#input_color").val(),
+                text: $("#input_text").val(),
+                address: $('#input_address').val(),
+                map: choosemap
+            }
+            var items = {
+                date: date,
+                schedule: []
+            }
+            if (localStorage.getItem(date) == null) {
+                items.schedule.push(item);
+                localStorage.setItem(date, JSON.stringify(items));
+            }
+            else if (localStorage.getItem(date) != null) {
+                var storage = JSON.parse(localStorage.getItem(date));
+                storage.schedule.push(item);
+                localStorage.setItem(date, JSON.stringify(storage));
+            }
+            location = location; //更新頁面
+        })
+        var a = new Date();
+        var now = new Date();
+
+        var thisMM = new Date();
+        console.log(thisMM.getMonth());
+        console.log("今天是" + a.toDateString());
+        a.setDate(1); //設定a為第一天
+        // console.log(a.getDate()); //第一天的日期
+        //  console.log(a.getDay()); //第一天星期幾
+        day = function () {
+            $("#DD").text("");
+            $("#YY").text(a.getFullYear() + "　／");
+            $("#MM").text((a.getMonth() + 1) + "");
+            thisMM.setMonth(a.getMonth());
+            while (a.getDay() != 1) {
+                a.setDate(a.getDate() - 1);
+            }
+            var DD = $("#DD");
+            for (var j = 0; j < 6; j++) {
+                var tr = $("<tr>").css("height", "6em");
+                for (var i = 0; i < 7; i++) {
+                    var td = $("<td>").css({ 'word-break': ' break-all' });
+                    var span = $("<span>").addClass("badge badge-info").css({ 'width': '100%', 'text-align': 'center', 'color': '#BBB', 'background-color': '#FFF', 'font-size': '1em' }).text(a.getDate());
+                    var key = getkey(a);
+                    if (localStorage.getItem(key) != null) {
+                        console.log("?");
+                        span.append(getschedule(key).css("color", "#000", ));
+                    }
+                    if (a.getMonth() == thisMM.getMonth()) { span.css({ 'width': '100%', 'text-align': 'center', 'color': '#111', 'background-color': '#FFF', 'font-size': '1em' }); }
+                    if (a.getDate() == now.getDate() && a.getMonth() == now.getMonth()) {
+                        span.css({ 'width': '100%', 'text-align': 'center', 'color': '#D00', 'font-size': '1em' });
+                    }
+                    td.append(span);
+                    tr.append(td);
+                    a.setDate(a.getDate() + 1);
+                }
+                DD.append(tr);
+            }
+        }
+        day();
+        $("#next").on("click", function () {
+            a.setDate(1);
+            day();
+        })
+        $("#former").on("click", function () {
+            a.setMonth(a.getMonth() - 2);
+            a.setDate(1);
+            day();
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>Title</title>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
+	 crossorigin="anonymous">
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	 crossorigin="anonymous">
+</head>
+
+<body>
+
+	<div class="container" style="width:800px;">
+
+		<div class="row mt-5">
+			<div class="offset-1"></div>
+			<div class="col">
+				<div id="map" class=" text-left" style="height:500px;"></div>
+
+			</div>
+
+		</div>
+		<div class="row " style="height: 120px;">
+			<div class="offset-1"></div>
+			<div class="col mt-2" style="border:solid slategray;">
+				<p>
+					<img src="http://icons.iconarchive.com/icons/graphicloads/100-flat/16/location-icon.png" alt=""> 旅遊景點
+				</p>
+				<p>
+					<img src="https://png.icons8.com/office/16/000000/restaurant.png" alt=""> 美食
+				</p>
+				<p>
+					<img src="http://icons.iconarchive.com/icons/graphicloads/100-flat/16/home-icon.png" alt=""> 旅館
+				</p>
+			</div>
+		</div>
+
+	</div>
+
+
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	 crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+	 crossorigin="anonymous"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYr-pVf6Frs9ZXOhNSFJYzR3j8jrxXfjU"></script>
+	<script>
+		var route = [];
+		var map;
+		var waypoints = [];
+		var directionsService = new google.maps.DirectionsService;
+		var directionsDisplay = new google.maps.DirectionsRenderer;
+		$(function () {
+
+
+			map = new google.maps.Map(
+				document.getElementById('map'), {
+					center: { lat: 24.7571075, lng: 120.952429 },
+					zoom: 13   //地圖比例
+				});
+			directionsDisplay.setMap(map);
+			//美食
+			$.ajax({
+				url: "http://opendata.hccg.gov.tw/dataset/4e722575-66a2-4af9-b1ff-95c2469331d1/resource/e17629a6-f7fb-4895-9d91-9d8e37d79eae/download/20180307103221255.json",
+				type: "GET"
+			}).done(function (data) {
+				for (var item of data) {
+					var address = item.地址;
+					if (address === '')
+						continue;
+					$.ajax({
+						url: 'https://maps.googleapis.com/maps/api/geocode/json?address=' + address + '&key=AIzaSyAYr-pVf6Frs9ZXOhNSFJYzR3j8jrxXfjU',
+						type: 'GET',
+						async: false
+					}).done(function (data) {
+						var marker = new google.maps.Marker({
+							position: data.results[0].geometry.location,
+							map: map,
+							title: item.店家名稱,
+							icon: "https://png.icons8.com/office/16/000000/restaurant.png"
+						});
+						marker.addListener("click", function () {
+							// console.log(this.position);
+							route.push(this.position);
+							//console.log(this.position);
+							Routes();
+						});
+						//console.log(data.results[0].geometry.location);
+					});
+				}
+			});
+			//景點
+			$.ajax({
+				url: "http://opendata.hccg.gov.tw/dataset/07caf18a-a966-4409-810a-ce3fdb7447b7/resource/3bca2d3b-177c-4e4a-9576-4a3ed8c81612/download/20180307114843661.json",
+				type: "GET"
+			}).done(function (data) {
+				for (var item of data) {
+					var address = item.地址;
+					if (address === '')
+						continue;
+					$.ajax({
+						url: 'https://maps.googleapis.com/maps/api/geocode/json?address=' + address + '&key=AIzaSyAYr-pVf6Frs9ZXOhNSFJYzR3j8jrxXfjU',
+						type: 'GET',
+						async: false
+					}).done(function (data) {
+						if (data.status == "OK") {
+							var marker = new google.maps.Marker({
+								position: data.results[0].geometry.location,
+								map: map,
+								title: item.景點名稱,
+								icon: "http://icons.iconarchive.com/icons/graphicloads/100-flat/16/location-icon.png"
+								//http://icons.iconarchive.com/icons/pelfusion/long-shadow-media/16/Maps-Pin-Place-icon.png
+							});
+							//console.log(data.results[0].geometry.location);
+							marker.addListener("click", function () {
+								// console.log(this.position);
+								route.push(this.position);
+								//console.log(this.position);
+								Routes();
+							});
+						}
+					});
+				}
+			});
+			//旅館 
+			$.ajax({
+				url: "http://opendata.hccg.gov.tw/dataset/39ee314b-7ce7-4265-a6b5-b57f42392da8/resource/6a3a5f61-5383-419d-a94c-df710071a51e/download/20180321131425502.json",
+				type: "GET"
+			}).done(function (data) {
+				for (var item of data) {
+					var marker = new google.maps.Marker({
+						position: { lat: parseFloat(item.緯度), lng: parseFloat(item.經度) },
+						map: map,
+						title: item.旅館名稱,
+						icon: "http://icons.iconarchive.com/icons/graphicloads/100-flat/16/home-icon.png"
+					});
+					marker.addListener("click", function () {
+						// console.log(this.position);
+						route.push(this.position);
+						Routes();
+					});
+				}
+			});
+			function Routes() {
+				waypoints = [];
+				console.log(route);
+				if (route.length > 2) {
+					var start = route[0];
+					var end = route[route.length - 1];
+					for (var i = 1; i < route.length - 1; i++) {
+
+						waypoints.push({
+							location: route[i],
+							stopover: true  //f?
+						});
+					}
+
+					directionsService.route({
+						origin: start,
+						destination: end,
+						waypoints: waypoints,
+						optimizeWaypoints: true,
+						travelMode: 'DRIVING'
+					}, function (response, status) {
+						if (status === 'OK') {
+							directionsDisplay.setDirections(response);
+						}
+					});
+				}
+
+
+			}
+
+
+		});
+
+
+
+
+
+	</script>
+</body>
+
+</html>
