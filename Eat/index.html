@@ -9,30 +9,42 @@
     <style>
         * {
             box-sizing: border-box;
-
+            font-family: Microsoft JhengHei;
         }
 
         img {
             height: 90px;
             width: 90px;
             /*border: solid 5px transparent;*/
+            border-radius: 50px;
         }
 
         .img-responsive {
             border: none;
-            transition: all 0.3s/*尾巴 在0.3秒後才消失*/
+            transition: all 0.3s;/*尾巴 在0.3秒後才消失*/
+            border-radius: 50px;
+            z-index: -1;
         }
 
         .img-responsive.active {
-            border: solid 5px mediumslateblue;
-            box-shadow: 0 0 10px rgb(136, 98, 241);
+            border: solid 0px mediumslateblue;
+            box-shadow: 0 0 60px rgb(136, 98, 241);
             transition: 0s;
             /*立刻有框框*/
+            border-radius: 50px ;
+            z-index: 1;
         }
+
+      ul{
+        display: flex;
+        flex-flow: row wrap;
+          align-content: flex-start;
+
+      }
+      button{
+          width: 200px;
+      }
     </style>
-
-
-
 
 
     <!-- Bootstrap CSS -->
@@ -48,35 +60,35 @@
             <div class="col-1">
                 <a href="http://vivawei.tw/2016-09-27-1327/">
                     <img id="i1" src="./images/01歐芙.jpg" alt="1">
+
                 </a>
             </div>
 
             <div class="col-1">
                 <a href="http://gn10202000.pixnet.net/blog/post/384692420-%E6%96%B0%E7%AB%B9%E6%96%B0%E5%AE%89%E8%B7%AF-%E7%AB%B9%E7%A7%91%E5%BA%97--%E6%89%98%E6%96%AF%E5%8D%A1%E5%B0%BC%E5%B0%BC%E7%BE%A9%E5%A4%A7%E5%88%A9%E9%BA%B5%E9%A4%90%E5%BB%B3">
-                    <img id="i" src="./images/03托斯卡尼尼.jpg" alt="1"> </a>
+                    <img id="i2" src="./images/03托斯卡尼尼.jpg" alt="1"> </a>
             </div>
-
+            <div class="col-1">
+                <a href="">
+                    <img id="i3" src="./images/05海神.jpg" alt="1">
+                </a>
+            </div>
             <div class="col-1">
                 <a href="https://www.google.com.tw/maps/dir/''/%E6%AD%90%E7%A6%8F%E6%89%BE%E9%A4%90%E6%96%B0%E7%AB%B9/@24.795006,120.9262949,13z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x346835926110048f:0x59467f9d4f6e33a6!2m2!1d120.9613146!2d24.7949322">
-                    <img id="i3" src="./images/02歐芙.jpg" alt="1">
+                    <img id="i4" src="./images/02歐芙.jpg" alt="1">
                 </a>
             </div>
 
             <div class="col-1">
-                <a href="http://gn10202000.pixnet.net/blog/post/384692420-%E6%96%B0%E7%AB%B9%E6%96%B0%E5%AE%89%E8%B7%AF-%E7%AB%B9%E7%A7%91%E5%BA%97--%E6%89%98%E6%96%AF%E5%8D%A1%E5%B0%BC%E5%B0%BC%E7%BE%A9%E5%A4%A7%E5%88%A9%E9%BA%B5%E9%A4%90%E5%BB%B3">
-                    <img id="i4" src="./images/03托斯卡尼尼.jpg" alt="1"> </a>
-            </div>
-            <div class="col-1">
-                <a href="https://www.google.com.tw/maps/dir/''/%E6%AD%90%E7%A6%8F%E6%89%BE%E9%A4%90%E6%96%B0%E7%AB%B9/@24.795006,120.9262949,13z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x346835926110048f:0x59467f9d4f6e33a6!2m2!1d120.9613146!2d24.7949322">
-                    <img id="i5" src="./images/02歐芙.jpg" alt="1">
-                </a>
+                <a href="">
+                    <img id="i5" src="./images/04初戀燒.jpg" alt="1"> </a>
             </div>
 
         </div>
         <div class="row  mt-4 mb-4">
             <div class="col-1">
-                <a href="http://gn10202000.pixnet.net/blog/post/384692420-%E6%96%B0%E7%AB%B9%E6%96%B0%E5%AE%89%E8%B7%AF-%E7%AB%B9%E7%A7%91%E5%BA%97--%E6%89%98%E6%96%AF%E5%8D%A1%E5%B0%BC%E5%B0%BC%E7%BE%A9%E5%A4%A7%E5%88%A9%E9%BA%B5%E9%A4%90%E5%BB%B3">
-                    <img id="i16" src="./images/03托斯卡尼尼.jpg" alt="1"> </a>
+                <a href="http://sos7374520.pixnet.net/blog/post/111735703-%E3%80%90%E9%A3%9F-%E6%96%B0%E7%AB%B9%E6%9D%B1%E5%8D%80%E3%80%91%E5%B5%90%E6%B2%BA%E6%8B%89%E9%BA%B5-%E2%99%A5-%E5%9C%A8%E6%8B%89%E9%BA%B5%E8%A3%A1%E6%B3%A1%E6%B9%AF%E7%9A%84">
+                    <img id="i16" src="./images/06嵐沺拉麵.jpg" alt="1"> </a>
             </div>
             <div class="col-3">
             </div>
@@ -87,16 +99,17 @@
         </div>
 
         <div class="row mt-4 mb-4">
-                <div class="col-1">
-                        <a href="http://vivawei.tw/2016-09-27-1327/">
-                            <img id="i15" src="./images/01歐芙.jpg" alt="1">
-                        </a>
-                    </div>
-            <div class="col-3">
+            <div class="col-1">
+                <a href="https://www.1111.com.tw/15sp/delicacy/discussTopic.asp?cat=delicacy&id=136996">
+                    <img id="i15" src="./images/07花魁.jpg" alt="1">
+                </a>
+            </div>
+            <div class="col-3 ">
+                <button id="Go" type="button" class="btn btn-info btn-block">GO</button>
             </div>
             <div class="col-1">
-                <a href="https://www.google.com.tw/maps/dir/''/%E6%AD%90%E7%A6%8F%E6%89%BE%E9%A4%90%E6%96%B0%E7%AB%B9/@24.795006,120.9262949,13z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x346835926110048f:0x59467f9d4f6e33a6!2m2!1d120.9613146!2d24.7949322">
-                    <img id="i7" src="./images/02歐芙.jpg" alt="1">
+                <a href="">
+                    <img id="i7" src="./images/05海神.jpg" alt="1">
                 </a>
             </div>
         </div>
@@ -104,28 +117,28 @@
         <div class="row  mt-4 mb-4">
 
             <div class="col-1">
-                <a href="http://vivawei.tw/2016-09-27-1327/">
-                    <img id="i14" src="./images/01歐芙.jpg" alt="1">
+                <a href="">
+                    <img id="i14" src="./images/04初戀燒.jpg" alt="1"> </a>
                 </a>
             </div>
             <div class="col-3">
             </div>
             <div class="col-1">
-                <a href="http://gn10202000.pixnet.net/blog/post/384692420-%E6%96%B0%E7%AB%B9%E6%96%B0%E5%AE%89%E8%B7%AF-%E7%AB%B9%E7%A7%91%E5%BA%97--%E6%89%98%E6%96%AF%E5%8D%A1%E5%B0%BC%E5%B0%BC%E7%BE%A9%E5%A4%A7%E5%88%A9%E9%BA%B5%E9%A4%90%E5%BB%B3">
-                    <img id="i8" src="./images/03托斯卡尼尼.jpg" alt="1"> </a>
+                <a href="https://www.1111.com.tw/15sp/delicacy/discussTopic.asp?cat=delicacy&id=136996">
+                    <img id="i8" src="./images/07花魁.jpg" alt="1">
             </div>
         </div>
 
         <div class="row  mt-4 mb-4">
             <div class="col-1">
-                <a href="http://vivawei.tw/2016-09-27-1327/">
-                    <img id="i13" src="./images/01歐芙.jpg" alt="1">
+                <a href="http://sos7374520.pixnet.net/blog/post/111735703-%E3%80%90%E9%A3%9F-%E6%96%B0%E7%AB%B9%E6%9D%B1%E5%8D%80%E3%80%91%E5%B5%90%E6%B2%BA%E6%8B%89%E9%BA%B5-%E2%99%A5-%E5%9C%A8%E6%8B%89%E9%BA%B5%E8%A3%A1%E6%B3%A1%E6%B9%AF%E7%9A%84">
+                    <img id="i13" src="./images/06嵐沺拉麵.jpg" alt="1"> </a>
                 </a>
             </div>
 
             <div class="col-1">
-                <a href="http://gn10202000.pixnet.net/blog/post/384692420-%E6%96%B0%E7%AB%B9%E6%96%B0%E5%AE%89%E8%B7%AF-%E7%AB%B9%E7%A7%91%E5%BA%97--%E6%89%98%E6%96%AF%E5%8D%A1%E5%B0%BC%E5%B0%BC%E7%BE%A9%E5%A4%A7%E5%88%A9%E9%BA%B5%E9%A4%90%E5%BB%B3">
-                    <img id="i12" src="./images/03托斯卡尼尼.jpg" alt="1"> </a>
+                <a href="https://www.1111.com.tw/15sp/delicacy/discussTopic.asp?cat=delicacy&id=136996">
+                    <img id="i12" src="./images/07花魁.jpg" alt="1">
             </div>
 
             <div class="col-1">
@@ -139,20 +152,19 @@
                     <img id="i10" src="./images/03托斯卡尼尼.jpg" alt="1"> </a>
             </div>
             <div class="col-1">
-                <a href="https://www.google.com.tw/maps/dir/''/%E6%AD%90%E7%A6%8F%E6%89%BE%E9%A4%90%E6%96%B0%E7%AB%B9/@24.795006,120.9262949,13z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x346835926110048f:0x59467f9d4f6e33a6!2m2!1d120.9613146!2d24.7949322">
-                    <img id="i9" src="./images/02歐芙.jpg" alt="1">
+                <a href="">
+                    <img id="i9" src="./images/05海神.jpg" alt="1">
                 </a>
             </div>
 
         </div>
         <div class="row ">
-            <div class="col-5 ">
+            <!-- <div class="col-5 ">
                 <button id="Go" type="button" class="btn btn-info btn-block">GO</button>
-            </div>
-
+            </div> -->
 
         </div>
-        <div class="row mt-1">
+        <!-- <div class="row mt-1">
             <div class="col-5">
                 <button class="btn btn-outline-info">
                     <a href="http://gn10202000.pixnet.net/blog/post/384692420-%E6%96%B0%E7%AB%B9%E6%96%B0%E5%AE%89%E8%B7%AF-%E7%AB%B9%E7%A7%91%E5%BA%97--%E6%89%98%E6%96%AF%E5%8D%A1%E5%B0%BC%E5%B0%BC%E7%BE%A9%E5%A4%A7%E5%88%A9%E9%BA%B5%E9%A4%90%E5%BB%B3">托斯卡尼尼-新竹竹科店</a>
@@ -165,11 +177,68 @@
                 <button class="btn btn-outline-info">
                     <a href="https://www.google.com.tw/maps/dir/''/%E6%AD%90%E7%A6%8F%E6%89%BE%E9%A4%90%E6%96%B0%E7%AB%B9/@24.795006,120.9262949,13z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x346835926110048f:0x59467f9d4f6e33a6!2m2!1d120.9613146!2d24.7949322">歐福找餐-振興店</a>
                 </button>
+                <hr>
+                <button class="btn btn-outline-info">
+                    <a href="">初戀燒</a>
+                </button>
+                <button class="btn btn-outline-info">
+                    <a href="">海神</a>
+                </button>
+                <button class="btn btn-outline-info">
+                    <a href="http://sos7374520.pixnet.net/blog/post/111735703-%E3%80%90%E9%A3%9F-%E6%96%B0%E7%AB%B9%E6%9D%B1%E5%8D%80%E3%80%91%E5%B5%90%E6%B2%BA%E6%8B%89%E9%BA%B5-%E2%99%A5-%E5%9C%A8%E6%8B%89%E9%BA%B5%E8%A3%A1%E6%B3%A1%E6%B9%AF%E7%9A%84">
+                        嵐沺拉麵 </a>
+                </button>
 
+                <button class="btn btn-outline-info">
+                    <a href="https://www.1111.com.tw/15sp/delicacy/discussTopic.asp?cat=delicacy&id=136996">
+                        花魁
+                    </a>
+                </button>
             </div>
 
-        </div>
-
+        </div> -->
+        <div class="col-3">
+                <ul>
+                    <li>
+                        <button class="btn btn-outline-info">
+                            <a href="http://gn10202000.pixnet.net/blog/post/384692420-%E6%96%B0%E7%AB%B9%E6%96%B0%E5%AE%89%E8%B7%AF-%E7%AB%B9%E7%A7%91%E5%BA%97--%E6%89%98%E6%96%AF%E5%8D%A1%E5%B0%BC%E5%B0%BC%E7%BE%A9%E5%A4%A7%E5%88%A9%E9%BA%B5%E9%A4%90%E5%BB%B3">托斯卡尼尼-新竹竹科店</a>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="btn btn-outline-info">
+                            <a href="http://vivawei.tw/2016-09-27-1327/">歐福找餐-東門店</a>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="btn btn-outline-info">
+                            <a href="https://www.google.com.tw/maps/dir/''/%E6%AD%90%E7%A6%8F%E6%89%BE%E9%A4%90%E6%96%B0%E7%AB%B9/@24.795006,120.9262949,13z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x346835926110048f:0x59467f9d4f6e33a6!2m2!1d120.9613146!2d24.7949322">歐福找餐-振興店</a>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="btn btn-outline-info">
+                            <a href="">初戀燒</a>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="btn btn-outline-info">
+                            <a href="">海神</a>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="btn btn-outline-info">
+                            <a href="http://sos7374520.pixnet.net/blog/post/111735703-%E3%80%90%E9%A3%9F-%E6%96%B0%E7%AB%B9%E6%9D%B1%E5%8D%80%E3%80%91%E5%B5%90%E6%B2%BA%E6%8B%89%E9%BA%B5-%E2%99%A5-%E5%9C%A8%E6%8B%89%E9%BA%B5%E8%A3%A1%E6%B3%A1%E6%B9%AF%E7%9A%84">
+                                嵐沺拉麵 </a>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="btn btn-outline-info">
+                            <a href="https://www.1111.com.tw/15sp/delicacy/discussTopic.asp?cat=delicacy&id=136996">
+                                花魁
+                            </a>
+                        </button>
+                    </li>
+                </ul>
+            </div>
     </div>
 
     <!-- Optional JavaScript -->
@@ -181,6 +250,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
     <script>
+
+
+
+
         var bricks = [];
         var walk = 0;
         var forwardsteps = 0; //剩幾格
